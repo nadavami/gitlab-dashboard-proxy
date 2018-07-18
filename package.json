@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "An event based cache for gitlab pipelines using webhooks.",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "node_modules/.bin/standard",
+    "test": "yarn lint && node_modules/.bin/jest"
+  },
   "repository": "https://github.com/nadavami/gitlab-pipeline-proxy.git",
   "author": "Nadav Ami <x@nadav.ca>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.4.1",
+    "standard": "^11.0.1"
+  }
 }
