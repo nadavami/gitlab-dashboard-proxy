@@ -1,0 +1,9 @@
+{
+  "name": "gitlab-pipeline-proxy",
+  "version": "1.0.0",
+  "description": "An event based cache for gitlab pipelines using webhooks.",
+  "main": "index.js",
+  "repository": "https://github.com/nadavami/gitlab-pipeline-proxy.git",
+  "author": "Nadav Ami <x@nadav.ca>",
+  "license": "MIT"
+}
