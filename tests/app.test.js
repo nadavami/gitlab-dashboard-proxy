@@ -1,6 +1,6 @@
 /* eslint-env jest */
 const request = require('supertest')
-const app = require('../app')
+const app = require('../app/app')
 
 describe('Forwards GitLab API Requests', () => {
   test('Can capture all requests on /gitlab/', async () => {
