@@ -13,10 +13,12 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^23.4.1",
+    "nock": "^9.4.2",
     "standard": "^11.0.1",
     "supertest": "^3.1.0"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "http-proxy-middleware": "^0.18.0"
   }
 }
