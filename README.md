@@ -1,5 +1,5 @@
-# gitlab-pipeline-proxy
-An event based cache for gitlab pipelines using webhooks.
+# gitlab-dashboard-proxy
+An event based cache for gitlab dashboards using webhooks.
 
 
 ## Q&A
