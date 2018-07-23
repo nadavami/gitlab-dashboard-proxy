@@ -1,5 +1,6 @@
 # gitlab-dashboard-proxy
 An event based cache for gitlab dashboards using webhooks.
+
 [![Build Status](https://travis-ci.org/nadavami/gitlab-pipeline-proxy.svg?branch=master)](https://travis-ci.org/nadavami/gitlab-pipeline-proxy)
 
 ## Q&A
