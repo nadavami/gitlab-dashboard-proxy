@@ -18,3 +18,29 @@ describe('Forwards GitLab API Requests', () => {
     expect(response.body).toEqual({msg: 'some content'})
   })
 })
+
+describe('Listens to pipeline webhooks', () => {
+  test('Can get pipline details  on /pipeline webhook from GitLab', async () => {
+    nock(dummyGitLabEndpoint)
+      .get('/api/v4/projects/123/pipelines')
+      .reply(200)
+      .get('/api/v4/projects/123/pipelines/456')
+      .reply(200)
+
+    let response = await request(app)
+      .post('/pipeline')
+      .send({
+        object_kind: 'pipeline',
+        object_attributes: { id: 456 },
+        project: { id: 123 }
+      })
+    expect(response.statusCode).toBe(200)
+  })
+
+  test('Invalid /pipeline webhook returns 500 error', async () => {
+    let response = await request(app)
+      .post('/pipeline')
+      .send({})
+    expect(response.statusCode).toBe(500)
+  })
+})
