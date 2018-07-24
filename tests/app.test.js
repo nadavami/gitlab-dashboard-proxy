@@ -9,6 +9,10 @@ process.env.GITLAB_URL = dummyGitLabEndpoint
 
 const app = require('../app/app')
 
+beforeEach(() => {
+  jest.resetModules()
+})
+
 afterEach(() => {
   nock.cleanAll()
 })
