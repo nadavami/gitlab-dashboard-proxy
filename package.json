@@ -8,6 +8,9 @@
     "lint": "node_modules/.bin/standard",
     "test": "yarn lint && node_modules/.bin/jest"
   },
+  "jest": {
+    "collectCoverage": true
+  },
   "repository": "https://github.com/nadavami/gitlab-pipeline-proxy.git",
   "author": "Nadav Ami <x@nadav.ca>",
   "license": "MIT",
