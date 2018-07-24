@@ -9,6 +9,10 @@ process.env.GITLAB_URL = dummyGitLabEndpoint
 
 const app = require('../app/app')
 
+afterEach(() => {
+  nock.cleanAll()
+})
+
 describe('Forwards GitLab API Requests', () => {
   test('Can forward /gitlab/ requests to GitLab', async () => {
     let gitlab = nock(dummyGitLabEndpoint).get('/api/v4/projects/').reply(200, {msg: 'some content'})
