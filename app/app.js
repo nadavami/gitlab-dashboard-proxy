@@ -26,7 +26,7 @@ app.post('/pipeline', async (req, res) => {
 app.use('/gitlab', proxy({
   target: GITLAB_URL,
   changeOrigin: true,
-  pathRewrite: { '^/gitlab': '/' },
+  pathRewrite: { '^/gitlab': '' },
   secure: false,
   logLevel: 'silent'
 }))
