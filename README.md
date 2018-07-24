@@ -2,6 +2,7 @@
 An event based cache for gitlab dashboards using webhooks.
 
 [![Build Status](https://travis-ci.org/nadavami/gitlab-pipeline-proxy.svg?branch=master)](https://travis-ci.org/nadavami/gitlab-pipeline-proxy)
+[![Coverage Status](https://coveralls.io/repos/github/nadavami/gitlab-dashboard-proxy/badge.svg)](https://coveralls.io/github/nadavami/gitlab-dashboard-proxy)
 
 ## Q&A
 ##### When would I need this?
