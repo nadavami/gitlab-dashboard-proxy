@@ -27,7 +27,8 @@ app.use('/gitlab', proxy({
   target: GITLAB_URL,
   changeOrigin: true,
   pathRewrite: { '^/gitlab': '/' },
-  secure: false
+  secure: false,
+  logLevel: 'silent'
 }))
 
 module.exports = app
