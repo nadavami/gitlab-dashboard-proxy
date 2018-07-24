@@ -11,17 +11,18 @@ const app = require('../app/app')
 
 describe('Forwards GitLab API Requests', () => {
   test('Can forward /gitlab/ requests to GitLab', async () => {
-    nock(dummyGitLabEndpoint).get('/api/v4/projects/').reply(200, {msg: 'some content'})
+    let gitlab = nock(dummyGitLabEndpoint).get('/api/v4/projects/').reply(200, {msg: 'some content'})
 
     let response = await request(app).get('/gitlab/api/v4/projects/')
     expect(response.statusCode).toBe(200)
     expect(response.body).toEqual({msg: 'some content'})
+    expect(gitlab.isDone()).toBe(true)
   })
 })
 
 describe('Listens to pipeline webhooks', () => {
   test('Can get pipline details  on /pipeline webhook from GitLab', async () => {
-    nock(dummyGitLabEndpoint)
+    let gitlab = nock(dummyGitLabEndpoint)
       .get('/api/v4/projects/123/pipelines')
       .reply(200)
       .get('/api/v4/projects/123/pipelines/456')
@@ -35,6 +36,7 @@ describe('Listens to pipeline webhooks', () => {
         project: { id: 123 }
       })
     expect(response.statusCode).toBe(200)
+    expect(gitlab.isDone()).toBe(true)
   })
 
   test('Invalid /pipeline webhook returns 500 error', async () => {
