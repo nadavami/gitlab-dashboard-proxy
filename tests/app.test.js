@@ -9,15 +9,15 @@ process.env.GITLAB_URL = dummyGitLabEndpoint
 
 const app = require('../app/app')
 
-beforeEach(() => {
-  jest.resetModules()
-})
-
-afterEach(() => {
-  nock.cleanAll()
-})
-
 describe('Forwards GitLab API Requests', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
+  afterEach(() => {
+    nock.cleanAll()
+  })
+
   test('Can forward /gitlab/ requests to GitLab', async () => {
     let gitlab = nock(dummyGitLabEndpoint)
       .get('/api/v4/projects/')
