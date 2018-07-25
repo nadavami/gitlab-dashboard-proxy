@@ -1,6 +1,6 @@
 {
   "name": "gitlab-pipeline-proxy",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "An event based cache for gitlab pipelines using webhooks.",
   "main": "index.js",
   "bin": "./index.js",
