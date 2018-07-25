@@ -1,10 +1,25 @@
 const express = require('express')
 const proxy = require('express-http-proxy')
+const bodyParser = require('body-parser')
 
 const GITLAB_URL = process.env.GITLAB_URL
 
 let app = express()
+app.use(bodyParser.json())
+
 let paths = {}
+
+app.post('/update', (req, res, next) => {
+  let isPipeline = req.body.object_kind === 'pipeline'
+  if (isPipeline) {
+    let projectID = req.body.project.id
+    Object.keys(paths)
+      .filter(key => `/api/v4/projects/${projectID}`.includes(key))
+      .forEach(key => delete paths[key])
+  }
+  res.status(200)
+  res.end()
+})
 
 app.use('/gitlab', (req, res, next) => {
   let path = req.path.replace(/gitlab\//, '')
