@@ -5,14 +5,13 @@ cache:
   directories:
   - node_modules
   yarn: true
-
 node_js:
-  - "8"
+- '8'
 
-jobs:
-  include:
-    - stage: test
-      script: yarn test && yarn coveralls
+script: yarn test && yarn coveralls
 
-  stages:
-    - Test
+deploy:
+  on:
+    tags: true
+  api_key:
+    secure: uansKIV9XnJM3e9HH7LAu75Uv4uCdT+Rvxme2GnJyA8ISkxY/0Om8cLviVoHCW5IMbagulu2PwYtg/y6Xuj+XCFqgSdBRxbDoTcChKkZXKA9VceBSoo6YanAl1p3mg6WHpVpj+8kycxfLp1zeYoN5ZizoKqTbm1ONK3J2WMHQ8kuSoG8fdILTEziTJh+l2coxV0NRLtVz6e7icLIw1ULumDkm/sApOw7BmU5oTWsMuOR3zWJd2lJw5eOBA233tEVxpQonBKMOHM5WRfNkSUTInCufWMFPZbkrGfvpHLMU0OUW0+6Co8HPeXn3fse8475N9roMyqX7xlfH757XGXDtdIBz22d6WoxVVB8cbSQjQtGFSEwgVB0/F9YWE3pl09rXWmP56NEFsNK91pg/D1zFT4usr1w9oSmP87QHkrSgHBY5kO8Y47AgwAqyQvfit77DB+Bh6cY6mwERLfOwZLOfhs/Xcz4wKS2K5OJNh8x3MWGYuHeoxAM86tvrS46zyMLitMkNkBYkG03ODEcQSt5Ke0K9rwe08MzACMLoGW/SUawRhC61BpIM9DADUCwtAT+6CKDCGxucSQwxQWOqgw7aQc6H0TjYzJYFc6GeNyPKajixGVA9Pt8YpCB3O0UrfSMUJYxwvuDw7rGRgvoJCwhBw7q47BQePr4hLhEsVNkXew=
