@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const proxy = require('http-proxy-middleware')
+const proxy = require('express-http-proxy')
 const request = require('request-promise')
 
 const GITLAB_URL = process.env.GITLAB_URL
@@ -23,12 +23,11 @@ app.post('/pipeline', async (req, res) => {
   res.end()
 })
 
-app.use('/gitlab', proxy({
-  target: GITLAB_URL,
-  changeOrigin: true,
-  pathRewrite: { '^/gitlab': '' },
-  secure: false,
-  logLevel: 'silent'
+app.use('/gitlab', proxy(GITLAB_URL, {
+  proxyReqOptDecorator: reqOptions => {
+    reqOptions.rejectUnauthorized = false
+    return reqOptions
+  }
 }))
 
 module.exports = app
