@@ -12,6 +12,7 @@ node_js:
 jobs:
   include:
     - stage: test
+      script: yarn test && yarn coveralls
 
   stages:
     - Test

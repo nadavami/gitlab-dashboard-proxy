@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "lint": "node_modules/.bin/standard",
-    "test": "yarn lint && node_modules/.bin/jest"
+    "test": "yarn lint && node_modules/.bin/jest",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "jest": {
     "collectCoverage": true
@@ -15,6 +16,7 @@
   "author": "Nadav Ami <x@nadav.ca>",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "jest": "^23.4.1",
     "nock": "^9.4.2",
     "standard": "^11.0.1",
