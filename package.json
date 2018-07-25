@@ -1,7 +1,7 @@
 {
-  "name": "gitlab-pipeline-proxy",
+  "name": "gitlab-dashboard-proxy",
   "version": "1.0.0-alpha.1",
-  "description": "An event based cache for gitlab pipelines using webhooks.",
+  "description": "An event based cache for gitlab dashboards using webhooks.",
   "main": "index.js",
   "bin": "./index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "jest": {
     "collectCoverage": true
   },
-  "repository": "https://github.com/nadavami/gitlab-pipeline-proxy.git",
+  "repository": "https://github.com/nadavami/gitlab-dashboard-proxy.git",
   "author": "Nadav Ami <x@nadav.ca>",
   "license": "MIT",
   "devDependencies": {
