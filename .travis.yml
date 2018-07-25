@@ -11,6 +11,7 @@ node_js:
 script: yarn test && yarn coveralls
 
 deploy:
+  provider: npm
   on:
     tags: true
   api_key:
