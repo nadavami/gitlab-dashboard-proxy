@@ -1,6 +1,6 @@
 {
   "name": "gitlab-dashboard-proxy",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "An event based cache for gitlab dashboards using webhooks.",
   "main": "index.js",
   "bin": "./index.js",
