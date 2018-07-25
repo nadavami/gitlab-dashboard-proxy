@@ -37,4 +37,9 @@ describe('Forwards GitLab API Requests', () => {
     expect(webhookResponse.statusCode).toBe(200)
     expect(gitlab.isDone()).toBe(true)
   })
+
+  test('Fail happy if /update is invalid', async () => {
+    let response = await request(app).post('/update')
+    expect(response.statusCode).toBe(200)
+  })
 })
