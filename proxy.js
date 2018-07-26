@@ -3,6 +3,7 @@ const proxy = require('express-http-proxy')
 const bodyParser = require('body-parser')
 
 const GITLAB_URL = process.env.GITLAB_URL
+const PATH_TO_CACHE = /.+\/projects\/\d+.+/
 
 let app = express()
 app.use(bodyParser.json())
@@ -23,7 +24,7 @@ app.post('/update', (req, res, next) => {
 
 app.use('/gitlab', (req, res, next) => {
   let path = req.path.replace(/gitlab\//, '')
-  if (path in paths) {
+  if (PATH_TO_CACHE.test(path) && path in paths) {
     res.set(paths[path].headers)
     res.end(paths[path].body)
   } else {
