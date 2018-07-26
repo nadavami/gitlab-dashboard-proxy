@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const app = require('./app/app')
+const app = require('./proxy')
 let port = process.env.PORT || 3000
 
 if (!process.env.GITLAB_URL) {

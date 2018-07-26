@@ -7,7 +7,7 @@ const nock = require('nock')
 const dummyGitLabEndpoint = 'http://some-gitlab-instance.com'
 process.env.GITLAB_URL = dummyGitLabEndpoint
 
-const app = require('../app/app')
+const app = require('../proxy')
 
 describe('Forwards GitLab API Requests', () => {
   beforeEach(() => {
