@@ -27,21 +27,24 @@ app.use('/gitlab', (req, res, next) => {
     res.set(paths[path].headers)
     res.end(paths[path].body)
   } else {
-    proxy(GITLAB_URL, {
-      userResHeaderDecorator: (headers, userReq, userRes, proxyReq, proxyRes) => {
-        paths[userReq.path] = {}
-        paths[userReq.path].headers = headers
-        return headers
-      },
-      userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
-        paths[userReq.path].body = proxyResData
-        return proxyResData
-      },
-      proxyReqOptDecorator: reqOptions => {
-        reqOptions.rejectUnauthorized = false
-        return reqOptions
-      }
-    })(req, res, next)
+    next()
   }
 })
+
+app.use('/gitlab', proxy(GITLAB_URL, {
+  userResHeaderDecorator: (headers, userReq, userRes, proxyReq, proxyRes) => {
+    paths[userReq.path] = {}
+    paths[userReq.path].headers = headers
+    return headers
+  },
+  userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+    paths[userReq.path].body = proxyResData
+    return proxyResData
+  },
+  proxyReqOptDecorator: reqOptions => {
+    reqOptions.rejectUnauthorized = false
+    return reqOptions
+  }
+}))
+
 module.exports = app
