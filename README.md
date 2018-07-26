@@ -12,12 +12,16 @@ yarn global add gitlab-dashboard-proxy
 ```
 
 ## Usage
+1. Start gitlab-dashboard-proxy using:
 ```bash
 export GITLAB_URL=https://gitlab.com
 export PORT=8080 # Optional. Default is 3000
 
 gitlab-dashboard-proxy
 ```
+2. Configure your dashboard to use `<gitlab-dashboard-proxy url>/gitlab` instead of GitLab's url.
+3. Configure your GitLab project or group to trigger a pipeline event webhook on `<gitlab-dashboard-proxy url>/update`.
+4. That's it!
 
 ## Q&A
 ### When would I need this?
