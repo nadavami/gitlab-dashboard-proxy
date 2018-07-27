@@ -24,10 +24,10 @@ gitlab-dashboard-proxy
 4. That's it!
 
 ## Routes
-`GET /gitlab` -> Proxies connections to GitLab and caches requests for projects
-`POST /update` -> Clears a single project's cache based on a GitLab pipeline webhook
-`GET /cache` -> Returns a JSON object containing cached paths
-`GET /cache/clear` -> Clears the entire cache
+- `GET /gitlab` -> Proxies connections to GitLab and caches requests for projects
+- `POST /update` -> Clears a single project's cache based on a GitLab pipeline webhook
+- `GET /cache` -> Returns a JSON object containing cached paths
+- `GET /cache/clear` -> Clears the entire cache
 
 ## Q&A
 ### When would I need this?
