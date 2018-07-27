@@ -1,6 +1,7 @@
 # gitlab-dashboard-proxy
 An event based cache for gitlab dashboards using webhooks.
 
+[![npm version](https://badge.fury.io/js/gitlab-dashboard-proxy.svg)](https://www.npmjs.com/package/gitlab-dashboard-proxy)
 [![Build Status](https://travis-ci.org/nadavami/gitlab-dashboard-proxy.svg?branch=master)](https://travis-ci.org/nadavami/gitlab-dashboard-proxy)
 [![Coverage Status](https://coveralls.io/repos/github/nadavami/gitlab-dashboard-proxy/badge.svg)](https://coveralls.io/github/nadavami/gitlab-dashboard-proxy)
 [![Known Vulnerabilities](https://snyk.io/test/github/nadavami/gitlab-dashboard-proxy/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nadavami/gitlab-dashboard-proxy?targetFile=package.json)
