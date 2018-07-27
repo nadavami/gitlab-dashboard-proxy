@@ -19,6 +19,10 @@ app.post('/update', (req, res, next) => {
   res.end()
 })
 
+app.get('/cache', (req, res) => {
+  res.json(apicache.getIndex())
+})
+
 app.use('/gitlab/api/v4/projects/:project_id', cache('1 hour'), (req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'private-token')
   req.apicacheGroup = req.params.project_id
