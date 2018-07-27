@@ -8,17 +8,26 @@ An event based cache for gitlab dashboards using webhooks.
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
+Using Yarn:
 ```bash
 yarn global add gitlab-dashboard-proxy
 ```
+Using [Docker](https://hub.docker.com/r/nadavami/gitlab-dashboard-proxy/):
+```bash
+docker pull nadavami/gitlab-dashboard-proxy
+```
 
 ## Usage
-1. Start gitlab-dashboard-proxy using:
+1. Start gitlab-dashboard-proxy using Yarn:
 ```bash
 export GITLAB_URL=https://gitlab.com
 export PORT=8080 # Optional. Default is 3000
 
 gitlab-dashboard-proxy
+```
+1. Start gitlab-dashboard-proxy using Docker:
+```bash
+docker run -d -e GITLAB_URL=https://gitlab.com -p 8080:3000 nadavami/gitlab-dashboard-proxy
 ```
 2. Configure your dashboard to use `<gitlab-dashboard-proxy url>/gitlab` instead of GitLab's url.
 3. Configure your GitLab project or group to trigger a pipeline event webhook on `<gitlab-dashboard-proxy url>/update`.
