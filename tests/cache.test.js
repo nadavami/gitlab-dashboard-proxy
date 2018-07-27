@@ -18,6 +18,22 @@ describe('Forwards GitLab API Requests', () => {
     nock.cleanAll()
   })
 
+  test('Can clear entire cache using /cache/clear', async () => {
+    let gitlab = nock(dummyGitLabEndpoint)
+      .get('/api/v4/projects/123')
+      .times(2)
+      .reply(200, {msg: 'some content'})
+    await request(app).get('/gitlab/api/v4/projects/123')
+
+    let response = await request(app).get('/cache/clear')
+
+    await request(app).get('/gitlab/api/v4/projects/123')
+
+    expect(response.statusCode).toBe(200)
+    expect(response.body).toHaveProperty('all', [])
+    expect(gitlab.isDone()).toBe(true)
+  })
+
   test('Can see whats cached using /cache', async () => {
     nock(dummyGitLabEndpoint)
       .get('/api/v4/projects/123')
