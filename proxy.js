@@ -6,11 +6,9 @@ const apicache = require('apicache')
 const GITLAB_URL = process.env.GITLAB_URL
 
 let app = express()
-app.use(bodyParser.json())
-
 let cache = apicache.middleware
 
-app.post('/update', (req, res, next) => {
+app.post('/update', bodyParser.json(), (req, res, next) => {
   let isPipeline = req.body.object_kind === 'pipeline'
   if (isPipeline) {
     apicache.clear(req.body.project.id)
