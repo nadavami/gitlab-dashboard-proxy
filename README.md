@@ -48,3 +48,6 @@ We DDoSed our GitLab instance after having many dashboards monitor many pipeline
 
 ### Wouldn't it be better to just have an event based pipeline dashboard?
 [Yes.](https://github.com/new) 
+
+### Shouldn't GitLab have a built-in dashboard?  
+[Yes.](https://gitlab.com/gitlab-org/gitlab-ce/issues/3235) 
