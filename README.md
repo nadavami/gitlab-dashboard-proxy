@@ -39,6 +39,9 @@ docker run -d -e GITLAB_URL=https://gitlab.com -p 8080:3000 nadavami/gitlab-dash
 - `GET /cache` -> Returns a JSON object containing cached paths
 - `GET /cache/clear` -> Clears the entire cache
 
+## Debugging
+Debug logs can be switched on by setting the environment variable `DEBUG=gitlab-dashboard-proxy`.
+
 ## Q&A
 ### When would I need this?
 We DDoSed our GitLab instance after having many dashboards monitor many pipelines. Just adding a single display that polls every 10s visibly increases server load. This project provides an event based cache to shield GitLab from the large number of API requests.
